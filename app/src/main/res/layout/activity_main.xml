@@ -120,54 +120,71 @@
         android:orientation="horizontal"
         />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/scroll_cards_scroll_bottom"
 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintGuide_percent="0.56"
+        android:orientation="horizontal"
+
+        />
     <!--  //  Guias   -->
 
     <TextView
         android:id="@+id/title_new"
 
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
         android:text="New and trending"
-        android:fontFamily="@font/turretroad_extrabold"
-        android:textSize="24sp"
 
         app:layout_constraintTop_toTopOf="@+id/scroll_cards_title"
         app:layout_constraintStart_toEndOf="@+id/search_guide_start"
 
 
-        />
+        style="@style/title_home" />
 
+
+    <!--  Scroll de novos e tendencias  -->
     <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
         app:layout_constraintTop_toBottomOf="@+id/scroll_cards_scroll"
+        app:layout_constraintBottom_toBottomOf="@id/scroll_cards_scroll_bottom"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         >
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="wrap_content"
-            android:layout_height="250dp">
+        <LinearLayout
+            android:layout_width="600dp"
+            android:layout_height="250dp"
+
+            >
 
             <!--            Cards           -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/card_01"
                 android:layout_width="250dp"
                 android:layout_height="250dp"
 
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
+
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/card_02"
 
                 app:cardCornerRadius="20dp"
                 android:backgroundTint="@color/bar_background"
 
                 android:orientation="vertical"
+
+                android:layout_marginEnd="15dp"
                 >
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
 
                     android:padding="8dp"
                     >
@@ -283,20 +300,550 @@
                     </androidx.constraintlayout.widget.ConstraintLayout>
                     <!-- //         Plataforma          -->
 
+                    <!--    Button    -->
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+
+                        android:text="Watch"
+                        android:textAllCaps="false"
+                        android:textSize="18sp"
+                        android:fontFamily="@font/turretroad_extrabold"
+
+                        android:backgroundTint="@color/yellow_button"
+                        android:background="@drawable/border_radius_button"
+
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+
+                        />
+                    <!-- //   Button    -->
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_02"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+
+                app:layout_constraintStart_toEndOf="@id/card_01"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                app:cardCornerRadius="20dp"
+                android:backgroundTint="@color/bar_background"
+
+                android:orientation="vertical"
+                >
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="255dp"
+                    android:layout_height="match_parent"
+
+                    android:padding="8dp">
+
+                    <!--       Imagem         -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/card_image2"
+
+                        android:layout_width="234dp"
+                        android:layout_height="140dp"
+
+                        app:cardCornerRadius="20dp"
+
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+
+                            android:src="@drawable/ic_game_image_test" />
+
+                    </androidx.cardview.widget.CardView>
+                    <!--  //     Imagem         -->
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                    <!--         Descrição           -->
+                    <TextView
+                        android:id="@+id/card_text2"
 
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+
+                        android:fontFamily="@font/turretroad_extrabold"
+                        android:text="Contra III: The Alien Wars"
+                        android:textSize="24sp"
+
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/card_image2"
+
+
+                        />
+                    <!-- //        Descrição           -->
+
+                    <!--          Plataforma          -->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="80dp"
+                        android:layout_height="wrap_content"
+
+                        android:orientation="horizontal"
+                        android:paddingTop="5dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/card_text2"
+
+                        >
+
+                        <ImageView
+                            android:id="@+id/nintendo_logo2"
+
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+
+                            android:src="@drawable/ic_nintendo_logo"
+
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/windows_logo2"
+
+                            app:layout_constraintHorizontal_chainStyle="spread_inside"
+                            app:layout_constraintStart_toStartOf="parent"
+
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/windows_logo2"
+
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+
+                            android:src="@drawable/ic_windows_os"
+
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/android_logo2"
+
+                            app:layout_constraintStart_toEndOf="@+id/nintendo_logo2"
+                            app:layout_constraintTop_toTopOf="parent"
+
+                            />
+
+                        <ImageView
+                            android:id="@+id/android_logo2"
+
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+
+                            android:src="@drawable/ic_android_os"
+
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+
+                            app:layout_constraintStart_toEndOf="@+id/windows_logo2"
+                            app:layout_constraintTop_toTopOf="parent"
+
+                            />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <!-- //         Plataforma          -->
+
+                    <!--    Button    -->
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+
+                        android:background="@drawable/border_radius_button"
+                        android:backgroundTint="@color/yellow_button"
+                        android:fontFamily="@font/turretroad_extrabold"
+                        android:text="Watch"
+
+                        android:textAllCaps="false"
+                        android:textSize="18sp"
+
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+
+                        />
+                    <!-- //   Button    -->
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+            <!--    //        Cards           -->
+
+        </LinearLayout>
     </HorizontalScrollView>
-
-
-    <!--    // Cards    -->
-
-
-
 <!-- //   Scroll Cards - Novos e tendências   -->
+
+    <!--  Guias  -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/title_guide_best"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintGuide_percent="0.6"
+        android:orientation="horizontal"
+
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/scroll_cards_best"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.6607387" />
+    <!--  // Guias  -->
+
+
+    <TextView
+        style="@style/title_home"
+
+        android:text="Best of the year"
+
+        app:layout_constraintStart_toStartOf="@+id/search_guide_start"
+        app:layout_constraintTop_toBottomOf="@+id/title_guide_best" />
+
+    <!--    Scroll Cards - Melhores do ano    -->
+    <HorizontalScrollView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintStart_toEndOf="@+id/search_guide_start"
+        app:layout_constraintEnd_toEndOf="parent
+"
+        app:layout_constraintTop_toTopOf="@+id/scroll_cards_best"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="20dp"
+            >
+
+            <!--     Cards       -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="100dp"
+                android:layout_height="150dp"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+
+                android:layout_marginEnd="10dp"
+                >
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+
+                    app:cardCornerRadius="20dp"
+                    >
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+                        android:background="@drawable/ic_game_small"
+
+                        />
+
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:text="The Witcher"
+                    android:textAlignment="center"
+                    android:textSize="12dp"
+                    android:fontFamily="@font/turretroad_extrabold"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="100dp"
+                android:layout_height="150dp"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+
+                android:layout_marginEnd="10dp"
+                >
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+
+                    app:cardCornerRadius="20dp"
+                    >
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+                        android:background="@drawable/ic_game_small"
+
+                        />
+
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:text="The Witcher"
+                    android:textAlignment="center"
+                    android:textSize="12dp"
+                    android:fontFamily="@font/turretroad_extrabold"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="100dp"
+                android:layout_height="150dp"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+
+                android:layout_marginEnd="10dp"
+                >
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+
+                    app:cardCornerRadius="20dp"
+                    >
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+                        android:background="@drawable/ic_game_small"
+
+                        />
+
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:text="The Witcher"
+                    android:textAlignment="center"
+                    android:textSize="12dp"
+                    android:fontFamily="@font/turretroad_extrabold"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="100dp"
+                android:layout_height="150dp"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+
+                android:layout_marginEnd="10dp"
+                >
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+
+                    app:cardCornerRadius="20dp"
+                    >
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+                        android:background="@drawable/ic_game_small"
+
+                        />
+
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:text="The Witcher"
+                    android:textAlignment="center"
+                    android:textSize="12dp"
+                    android:fontFamily="@font/turretroad_extrabold"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="100dp"
+                android:layout_height="150dp"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+
+                android:layout_marginEnd="10dp"
+                >
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+
+                    app:cardCornerRadius="20dp"
+                    >
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+                        android:background="@drawable/ic_game_small"
+
+                        />
+
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:text="The Witcher"
+                    android:textAlignment="center"
+                    android:textSize="12dp"
+                    android:fontFamily="@font/turretroad_extrabold"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="100dp"
+                android:layout_height="150dp"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+
+                android:layout_marginEnd="10dp"
+                >
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+
+                    app:cardCornerRadius="20dp"
+                    >
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+                        android:background="@drawable/ic_game_small"
+
+                        />
+
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:text="The Witcher"
+                    android:textAlignment="center"
+                    android:textSize="12dp"
+                    android:fontFamily="@font/turretroad_extrabold"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <!--  //   Cards       -->
+
+        </LinearLayout>
+    </HorizontalScrollView>
+    <!--   // Scroll Cards - Melhores do ano    -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
